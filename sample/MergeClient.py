@@ -13,11 +13,12 @@ print 'Receiving data...'
 while 1:
 
     data = s.recv(4096)	#Receives data in chunks 
-    #print data 
+#    print data 
     arraystring += data	#Adds data to array string 
     if ']' in data:	 #When end of data is received
 
         break
+print arraystring
 array = eval(arraystring)	
 print 'Data received, sorting array... ' 
 
