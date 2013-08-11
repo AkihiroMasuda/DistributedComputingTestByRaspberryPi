@@ -74,8 +74,8 @@ for i in range(procno - 1):	#Converts array section into string to be sent
 
     arraystring = repr(sections[i+1])
     c = conn_list[i]
-    #conn.sendto( arraystring , addr_list[i] )	#Sends array string
-    # c.sendto( arraystring , addr_list[i] )	#Sends array string
+
+    #send task and param
     Procedure.sendFuncParam(c, addr_list[i], defFunc, arraystring, defFuncEntry)
     print 'Data sent, sorting array...'
 

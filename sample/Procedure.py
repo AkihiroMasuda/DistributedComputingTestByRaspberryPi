@@ -2,7 +2,8 @@ import socket
 
 def sendFuncParam(conn, addr, defFunc, defParam, defFuncEntry):
     # send a function and parameter
-    conn.sendto("<FUNCENTRY>" + defFuncEntry + "</FUNCENTRY>" + "<FUNCTION>" + defFunc + "</FUNCTION>" + "<DATA>" + repr(defParam) + "</DATA>", addr )	#Sends function string
+    # conn.sendto("<FUNCENTRY>" + defFuncEntry + "</FUNCENTRY>" + "<FUNCTION>" + defFunc + "</FUNCTION>" + "<DATA>" + repr(defParam) + "</DATA>", addr )	#Sends function string
+    conn.sendto("<FUNCENTRY>" + defFuncEntry + "</FUNCENTRY>" + "<FUNCTION>" + defFunc + "</FUNCTION>" + "<DATA>" + defParam + "</DATA>", addr )	#Sends function string
     return
 
 # split string by tag1 and tag2, and get content
