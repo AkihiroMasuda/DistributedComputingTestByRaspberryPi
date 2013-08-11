@@ -1,7 +1,7 @@
 import time 
 
 def merge(left,right):	#merges 2 sorted lists together 
-	
+
 	result = [] 
 	i, j = 0, 0 
 	
@@ -20,16 +20,16 @@ def merge(left,right):	#merges 2 sorted lists together
 	return result
 
 def mergesort(lst):
-	
-	#if there's only 1 element, no need to sort 
+
+	#if there's only 1 element, no need to sort
 	if len(lst) < 2:
 		return lst
-	#breaks down list into 2 halves 
-	middle = len(lst) / 2	
-	
-	#recursively splits and sorts each half	
-	left = mergesort(lst[:middle])	
-	right = mergesort(lst[middle:]) 
-	
-	#merges both sorted lists together 
+	#breaks down list into 2 halves
+	middle = len(lst) / 2
+
+	#recursively splits and sorts each half
+	left = mergesort(lst[:middle])
+	right = mergesort(lst[middle:])
+
+	#merges both sorted lists together
 	return merge(left, right)
