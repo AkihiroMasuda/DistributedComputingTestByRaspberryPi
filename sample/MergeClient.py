@@ -18,7 +18,7 @@ while 1:
     if ']' in data:	 #When end of data is received
 
         break
-print arraystring
+#print arraystring
 array = eval(arraystring)	
 print 'Data received, sorting array... ' 
 

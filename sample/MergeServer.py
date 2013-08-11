@@ -22,8 +22,8 @@ def breakarray(array, n):
     return result
 
 #Create an array to be sorted 
-#arraylength = 100000	 #Length of array to be sorted 
-arraylength = 20	 #Length of array to be sorted 
+arraylength = 100000	 #Length of array to be sorted 
+#arraylength = 20	 #Length of array to be sorted 
 print 'Length of array is', arraylength 
 array = range(arraylength)	#Creates array 
 random.shuffle(array)	 #Jumbles up array 
@@ -89,5 +89,5 @@ for i in range(procno - 1):	 #Receives sorted sections from each client
 time_taken = time.time() - start_time	#Calculates and records time_taken 
 
 print 'Time taken to sort is ', time_taken, 'seconds.'
-print 'Result : ', array
+#print 'Result : ', array
 
