@@ -7,7 +7,6 @@ import Procedure
 
 arraylength = 30	 #Length of array to be sorted
 #arraylength = 1000000	 #Length of array to be sorted
-#arraylength = 20	 #Length of array to be sorted
 procno = 2	#number of processors
 
 #breaks down array into n sections where n is the number of processors
@@ -61,21 +60,16 @@ start_time = time.time()	#Records start time
 
 sections = breakarray(array, procno)	#splits array into sections for every client
 
-# load task
 # load a function of task
 defFunc = open('MergeSort.py').read()
-# # make a parameter
-# defParam = []
-# defParam.append(time.time())
-# define function entry name
+# make a parameter
 defFuncEntry = "mergesort"
 
 for i in range(procno - 1):	#Converts array section into string to be sent
 
-    arraystring = repr(sections[i+1])
     c = conn_list[i]
-
     #send task and param
+    arraystring = repr(sections[i+1])
     Procedure.sendFuncParam(c, addr_list[i], defFunc, arraystring, defFuncEntry)
     print 'Data sent, sorting array...'
 
@@ -94,7 +88,7 @@ for i in range(procno - 1):	 #Receives sorted sections from each client
 
             break
     print 'Data received, merging arrays...'
-    print 'recdata : ' + arraystring
+    # print 'recdata : ' + arraystring
     array = MergeSort.merge(array, eval(arraystring))	#Merges current array with section from client
     print 'Arrays merged.'
     cc.close()
@@ -103,5 +97,5 @@ for i in range(procno - 1):	 #Receives sorted sections from each client
 time_taken = time.time() - start_time	#Calculates and records time_taken
 
 print 'Time taken to sort is ', time_taken, 'seconds.'
-print 'Result : ', array
+# print 'Result : ', array
 
